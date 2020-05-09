@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+use App\DatBan;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use DB;
+use Session;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
+session_start();
+
+class DatBanController extends Controller {
+	public function DanhSachDatBan() {
+		return view('admin.DatBan.home', ['DatBan' => DatBan::all()]);
+	}
+	public function XoaDatBan($id) {
+		DatBan::destroy($id);
+		return redirect()->route('danhsachdatban');
+	}
+
+	public function thongke(Request $req){
+		$list = DB::table('datban')
+                     ->select(DB::raw('count(*) as num'), 'Ngay')
+                     ->groupBy('Ngay')
+					 ->get();
+		foreach($list as $key => $value){
+			$count = $value->num;
+			$date = $value->Ngay;
+			// print($date);
+			// echo('</br>');
+			// print_r($count);
+			// echo('</br>');
+		}
+		return view('admin.DatBan.thongke')->with('list', $list);
+	}
+}
