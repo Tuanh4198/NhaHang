@@ -34,4 +34,5 @@ class DatBanController extends Controller {
 		}
 		return view('admin.DatBan.thongke')->with('list', $list);
 	}
+	// thống kê xem 1 ngày có bn bàn dặt Mỗi lần thêm bàn rồi vào thống kê xem nó sẽ cập nhật cho bạn
 }

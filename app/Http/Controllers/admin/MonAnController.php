@@ -16,7 +16,8 @@ class MonAnController extends Controller
 {
     public function DanhSachMonAn()
     {
-        return view('admin.MonAn.DanhSachMonAn', ['MonAn' => MonAn::paginate(2)]);
+        return view('admin.MonAn.DanhSachMonAn', ['MonAn' => MonAn::paginate(12)]);
+        // bạn muốn bn món ăn hiện ở 1 trang thì config ở đây ->>
     }
 
     public function ThemMonAn()

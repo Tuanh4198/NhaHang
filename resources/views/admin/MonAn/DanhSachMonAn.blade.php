@@ -14,7 +14,7 @@
             <div class="col-3">
               <div class="product">
                 <div class="product-img">
-                  <img src='{{url('/uploads/'.$item->HinhAnh)}}' width="100%">
+                  <img src='{{url('/uploads/'.$item->HinhAnh)}}' width="100%" height="276">
                   <div class="action">
                     <a href="{{route('suamonan',[ 'id' => $item->id])}}" class="btn btn-xs btn-info" style="margin-bottom: 5px;"> Sửa</a>
                     <a href="{{route('xoamonan',[ 'id' => $item->id])}}" class="btn btn-xs btn-danger"  onclick="return confirm('Bạn đồng ý xóa')"> Xóa</a>
@@ -23,7 +23,7 @@
                 <div class="product-detail">
                   <div class="product-name"> {{$item->TenMonAn}} </div>
                   <b class="product-price"> {{$item->Gia}}.VNĐ </b>
-                  <div>Danh mục: {{$item->TenDanhMuc}}</div>
+                  <div>Danh mục: {{$item->danhmuc->TenDanhMuc}}</div>
                 </div>
               </div>
             </div>
