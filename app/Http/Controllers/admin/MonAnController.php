@@ -16,10 +16,7 @@ class MonAnController extends Controller
 {
     public function DanhSachMonAn()
     {
-        $MonAn = DB::table('monan')
-        ->join('danhmuc','monan.idDanhMuc','=','danhmuc.id')
-        ->paginate(2);
-        return view('admin.MonAn.DanhSachMonAn')->with('MonAn', $MonAn);
+        return view('admin.MonAn.DanhSachMonAn', ['MonAn' => MonAn::paginate(2)]);
     }
 
     public function ThemMonAn()
